@@ -20,8 +20,7 @@ module.exports = {
     postsPerPage: 5,
     showMenuItems: 2,
     menuMoreText: 'Show more',
-    mainMenu: [
-      {
+    mainMenu: [{
         title: 'About',
         path: '/about',
       },
@@ -35,7 +34,14 @@ module.exports = {
       },
     ],
   },
-  plugins: [
+  plugins: [{
+      resolve: `gatsby-source-youtube-v2`,
+      options: {
+        channelId: ['UCTGgxc_jIz2z9mpfInuPHWQ'],
+        apiKey: 'AIzaSyC0lmwr9dD1BcMYE8yc1qNZjl33ZWSM6zw',
+        maxVideos: 50 // Defaults to 50
+      },
+    },
     `babel-preset-gatsby`,
     `gatsby-plugin-react-helmet`,
     {
@@ -83,8 +89,7 @@ module.exports = {
     {
       resolve: `gatsby-transformer-remark`,
       options: {
-        plugins: [
-          {
+        plugins: [{
             resolve: 'gatsby-remark-embed-video',
             options: {
               related: false,
